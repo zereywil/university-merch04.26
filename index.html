@@ -121,7 +121,7 @@
             <input
               type="text"
               id="profile-name"
-              class="w-full px-3 py-2 border-red-500 rounded-lg"
+              class="w-full px-3 py-2 border rounded-lg"
             />
           </div>
           <div class="mb-4">
@@ -159,11 +159,19 @@
         &times;
       </button>
       <ul class="mt-8 space-y-4">
-        <li><a href="#" class="text-lg hover:text-blue-600">Каталог</a></li>
+        <li>
+          <a href="catalog.html" class="text-lg hover:text-blue-600">Каталог</a>
+        </li>
         <li><a href="#" class="text-lg hover:text-blue-600">Новинки</a></li>
         <li><a href="#" class="text-lg hover:text-blue-600">Распродажа</a></li>
-        <li><a href="#" class="text-lg hover:text-blue-600">О нас</a></li>
-        <li><a href="#" class="text-lg hover:text-blue-600">Контакты</a></li>
+        <li>
+          <a href="about.html" class="text-lg hover:text-blue-600">О нас</a>
+        </li>
+        <li>
+          <a href="contacts.html" class="text-lg hover:text-blue-600"
+            >Контакты</a
+          >
+        </li>
       </ul>
     </div>
 
@@ -566,64 +574,33 @@
         closeCartModal();
       }
 
-      // ТОВАРЫ
-      // const generateProducts = (count) => {
-      //   const names = [
-      //     "Худи с логотипом",
-      //     "Футболка University",
-      //     "Кепка с гербом",
-      //     "Толстовка оверсайз",
-      //     "Кружка керамическая",
-      //     "Блокнот A5",
-      //     "Значок металлический",
-      //     "Шоппер хлопковый",
-      //   ];
-      //   const products = [];
-      //   for (let i = 1; i <= count; i++) {
-      //     products.push({
-      //       id: i,
-      //       name:
-      //         names[i % names.length] +
-      //         (i > 12 ? ` ${Math.floor(i / 12) + 1}` : ""),
-      //       price: Math.floor(Math.random() * 3000) + 500,
-      //       image: `https://picsum.photos/300/300?random=${i}`,
-      //       category: names[i % names.length],
-      //     });
-      //   }
-      //   return products;
-      // };
-
-      // let allProducts = generateProducts(50);
-      // let displayedCount = 20;
-      // let currentProducts = allProducts.slice(0, displayedCount);
-
       const allProducts = [
         {
           id: 1,
           name: "Худи с Arseniy",
           price: 2500,
-          image: "images/hoody.jpg",
+          image: "images/hoody.png",
           category: "Кофта",
         },
         {
           id: 2,
           name: "Футболка",
           price: 1200,
-          image: "images/shirt.jpg",
+          image: "images/shirt.png",
           category: "Футболка",
         },
         {
           id: 3,
           name: "Кепка",
           price: 800,
-          image: "images/cap.jpg",
+          image: "images/cap.png",
           category: "Спорт",
         },
         {
           id: 4,
           name: "Толстовка оверсайз",
           price: 3000,
-          image: "images/hoody.jpg",
+          image: "images/tolstovka.png",
           category: "Тепло",
         },
         {
@@ -644,35 +621,28 @@
           id: 7,
           name: "Значок металлический",
           price: 150,
-          image: "https://via.placeholder.com/300x300?text=Нет+фото",
+          image: "images/znachok.png",
           category: "Значок",
         },
         {
           id: 8,
           name: "Шоппер хлопковый",
           price: 900,
-          image: "https://via.placeholder.com/300x300?text=Нет+фото",
+          image: "images/shoper.png",
           category: "Спорт",
         },
         {
           id: 9,
           name: "Рюкзак",
           price: 2000,
-          image: "https://via.placeholder.com/300x300?text=Нет+фото",
+          image: "images/backpack.png",
           category: "Тепло",
         },
         {
           id: 10,
           name: "Панама",
           price: 600,
-          image: "https://via.placeholder.com/300x300?text=Нет+фото",
-          category: "Холод",
-        },
-        {
-          id: 11,
-          name: "Носки с принтом",
-          price: 350,
-          image: "https://via.placeholder.com/300x300?text=Нет+фото",
+          image: "images/panam.png",
           category: "Холод",
         },
       ];
