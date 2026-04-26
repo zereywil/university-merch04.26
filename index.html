@@ -162,8 +162,6 @@
         <li>
           <a href="catalog.html" class="text-lg hover:text-blue-600">Каталог</a>
         </li>
-        <li><a href="#" class="text-lg hover:text-blue-600">Новинки</a></li>
-        <li><a href="#" class="text-lg hover:text-blue-600">Распродажа</a></li>
         <li>
           <a href="about.html" class="text-lg hover:text-blue-600">О нас</a>
         </li>
@@ -360,19 +358,14 @@
           </div>
           <div>
             <h3 class="font-bold text-lg mb-4">КОНТАКТЫ</h3>
-            <p>Email: rea@university.ru</p>
+            <p>Email: ren@merch.ru</p>
             <p>Тел: +7 (999) 123-45-67</p>
-            <div class="flex gap-4 mt-4">
-              <a href="#" class="text-2xl hover:text-gray-300">📷</a>
-              <a href="#" class="text-2xl hover:text-gray-300">📘</a>
-              <a href="#" class="text-2xl hover:text-gray-300">🎵</a>
-            </div>
           </div>
         </div>
         <div
           class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400"
         >
-          © 2026 Университетский мерч.
+          © 2026 RENIMAL мерч.
         </div>
       </div>
     </footer>
@@ -756,6 +749,42 @@
           container.scrollLeft += direction * scrollAmount;
         }
       }
+
+      // ФИЛЬТРАЦИЯ ПО КНОПКАМ
+      let currentCategory = "all";
+
+      function filterProductsByCategory(category) {
+        currentCategory = category;
+
+        if (category === "all") {
+          currentProducts = allProducts.slice(0, displayedCount);
+        } else {
+          const filtered = allProducts.filter(
+            (product) => product.category === category,
+          );
+          currentProducts = filtered.slice(0, displayedCount);
+        }
+
+        displayProducts(currentProducts);
+      }
+
+      const filterButtons = document.querySelectorAll(
+        "#filter-buttons .filter-btn",
+      );
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          filterButtons.forEach((b) => {
+            b.classList.remove("bg-black", "text-white");
+            b.classList.add("border", "border-gray-300");
+          });
+
+          this.classList.add("bg-black", "text-white");
+          this.classList.remove("border-gray-300");
+
+          const category = this.getAttribute("data-category");
+          filterProductsByCategory(category);
+        });
+      });
 
       // ЗАПУСК
       displayProducts(currentProducts);
