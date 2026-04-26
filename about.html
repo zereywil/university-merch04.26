@@ -1,0 +1,87 @@
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <button onclick="openMenu()" class="text-2xl">☰</button>
+    <h1 class="text-xl font-bold">REANIMAL MERCH</h1>
+    <div class="flex gap-4">
+      <button onclick="openCartModal()" class="text-2xl relative">
+        🛒
+        <span
+          id="cart-count"
+          class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center"
+          >0</span
+        >
+      </button>
+      <button onclick="openProfileModal()" class="text-2xl">👤</button>
+    </div>
+  </div>
+</header>
+
+<section class="container mx-auto px-4 py-24">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl font-bold mb-6">О нас</h1>
+    <p class="text-lg mb-4 text-gray-700">
+      Renimal — это мерч для тех, кто ценит качество и стиль.
+    </p>
+    <p class="text-lg mb-4 text-gray-700">
+      Мы создаём одежду и аксессуары с душой, вдохновляясь теми кто ее
+      производит и носит.
+    </p>
+    <p class="text-lg text-gray-700">
+      Наша миссия — делать комфортную и красивую одежду доступной для каждого.
+    </p>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-white mt-16 py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-bold text-lg mb-4">НАВИГАЦИЯ</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="hover:text-gray-300 transition">Каталог</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-gray-300 transition">Контакты</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-gray-300 transition">Кабинет</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-4">ПОМОЩЬ</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="hover:text-gray-300 transition"
+              >Доставка и оплата</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-gray-300 transition"
+              >Возврат и обмен</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-gray-300 transition">Поддержка</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-4">КОНТАКТЫ</h3>
+        <p>Email: rea@university.ru</p>
+        <p>Тел: +7 (999) 123-45-67</p>
+        <div class="flex gap-4 mt-4">
+          <a href="#" class="text-2xl hover:text-gray-300">📷</a>
+          <a href="#" class="text-2xl hover:text-gray-300">📘</a>
+          <a href="#" class="text-2xl hover:text-gray-300">🎵</a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400"
+    >
+      © 2026 Университетский мерч.
+    </div>
+  </div>
+</footer>
