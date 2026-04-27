@@ -101,6 +101,72 @@
       </div>
     </div>
 
+    <!-- Modal delivery and pay -->
+    <div
+      id="delivery-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center"
+    >
+      <div class="bg-white rounded-lg w-full max-w-md mx-4 p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold">Доставка и оплата</h2>
+          <button onclick="closeDeliveryModal()" class="text-2xl">
+            &times;
+          </button>
+        </div>
+        <div class="space-y-3 text-gray-700">
+          <p><strong> Доставка:</strong> от 3 до 7 дней по всей России.</p>
+          <p>
+            <strong> Оплата:</strong> картой онлайн или наличными при получении.
+          </p>
+          <p><strong> Бесплатно:</strong> при заказе от 3000 ₽.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal return -->
+    <div
+      id="return-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center"
+    >
+      <div class="bg-white rounded-lg w-full max-w-md mx-4 p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold">Возврат и обмен</h2>
+          <button onclick="closeReturnModal()" class="text-2xl">&times;</button>
+        </div>
+        <div class="space-y-3 text-gray-700">
+          <p>Обмен и возврат в течение 14 дней</p>
+          <p>Товар должен быть в оригинальной упаковке</p>
+          <p>Бесплатный возврат по Перми</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal help -->
+    <div
+      id="support-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center"
+    >
+      <div class="bg-white rounded-lg w-full max-w-md mx-4 p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold">Поддержка</h2>
+          <button onclick="closeSupportModal()" class="text-2xl">
+            &times;
+          </button>
+        </div>
+        <div class="space-y-3 text-gray-700">
+          <p>Email: support@renimal.ru</p>
+          <p>Телефон: +7 (999) 123-45-67</p>
+          <p>Часы работы: Пн-Пт 10:00-17:00</p>
+          <button
+            onclick="closeSupportModal()"
+            class="mt-4 w-full bg-black text-white py-2 rounded-full"
+          >
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!--Profile modal window-->
     <div
       id="profile-modal"
@@ -328,13 +394,25 @@
             <h3 class="font-bold text-lg mb-4">НАВИГАЦИЯ</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="hover:text-gray-300 transition">Каталог</a>
+                <a href="catalog.html" class="hover:text-gray-300 transition"
+                  >Каталог</a
+                >
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300 transition">Контакты</a>
+                <a href="contacts.html" class="hover:text-gray-300 transition"
+                  >Контакты</a
+                >
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300 transition">Кабинет</a>
+                <a
+                  href="#"
+                  onclick="
+                    openProfileModal();
+                    return false;
+                  "
+                  class="hover:text-gray-300 transition"
+                  >Кабинет</a
+                >
               </li>
             </ul>
           </div>
@@ -342,17 +420,37 @@
             <h3 class="font-bold text-lg mb-4">ПОМОЩЬ</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="hover:text-gray-300 transition"
+                <a
+                  href="#"
+                  onclick="
+                    openDeliveryModal();
+                    return false;
+                  "
+                  class="hover:text-gray-300 transition"
                   >Доставка и оплата</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300 transition"
+                <a
+                  href="#"
+                  onclick="
+                    openReturnModal();
+                    return false;
+                  "
+                  class="hover:text-gray-300 transition"
                   >Возврат и обмен</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300 transition">Поддержка</a>
+                <a
+                  href="#"
+                  onclick="
+                    openSupportModal();
+                    return false;
+                  "
+                  class="hover:text-gray-300 transition"
+                  >Поддержка</a
+                >
               </li>
             </ul>
           </div>
@@ -794,6 +892,36 @@
       const loadMoreBtn = document.getElementById("load-more-btn");
       if (loadMoreBtn) {
         loadMoreBtn.addEventListener("click", loadMore);
+      }
+
+      // Доставка и оплата
+      function openDeliveryModal() {
+        document.getElementById("delivery-modal").classList.remove("hidden");
+        document.getElementById("delivery-modal").classList.add("flex");
+      }
+      function closeDeliveryModal() {
+        document.getElementById("delivery-modal").classList.add("hidden");
+        document.getElementById("delivery-modal").classList.remove("flex");
+      }
+
+      // Возврат и обмен
+      function openReturnModal() {
+        document.getElementById("return-modal").classList.remove("hidden");
+        document.getElementById("return-modal").classList.add("flex");
+      }
+      function closeReturnModal() {
+        document.getElementById("return-modal").classList.add("hidden");
+        document.getElementById("return-modal").classList.remove("flex");
+      }
+
+      // Поддержка
+      function openSupportModal() {
+        document.getElementById("support-modal").classList.remove("hidden");
+        document.getElementById("support-modal").classList.add("flex");
+      }
+      function closeSupportModal() {
+        document.getElementById("support-modal").classList.add("hidden");
+        document.getElementById("support-modal").classList.remove("flex");
       }
     </script>
   </body>
