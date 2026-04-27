@@ -35,13 +35,6 @@
       .overlay.show {
         display: block;
       }
-      .hero-banner {
-        height: 80vh;
-        background-image: url("images/Banner.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
       .product-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -56,17 +49,13 @@
         overflow-x: auto;
         scrollbar-width: thin;
       }
-      @media (max-width: 768px) {
-        .hero-banner {
-          height: 50vh;
-        }
-        .product-grid {
-          gap: 1rem;
-        }
-        .filter-btn {
-          font-size: 14px;
-          padding: 6px 16px;
-        }
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex: 1;
       }
     </style>
   </head>
@@ -260,131 +249,66 @@
       </div>
     </header>
 
-    <!-- БАННЕР -->
-    <section class="hero-banner"></section>
+    <main>
+      <section class="container mx-auto px-4 py-24">
+        <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <!-- Контактная информация -->
+          <div>
+            <h1 class="text-3xl font-bold mb-6">Контакты</h1>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span>Пермь, ул.Ленина, д.44</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <a href="mailto:ren@merch.ru" class="hover:text-blue-600"
+                  >ren@merch.ru</a
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <a href="tel:+79991234567" class="hover:text-blue-600"
+                  >+7 (999) 123-45-67</a
+                >
+              </div>
+            </div>
+          </div>
 
-    <!-- ФИЛЬТРЫ (горизонтальный скролл) -->
-    <section class="container mx-auto px-4 py-8">
-      <div class="horizontal-scroll flex gap-3 pb-4" id="filter-buttons">
-        <button
-          data-category="all"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap bg-black text-white"
-        >
-          Все
-        </button>
-        <button
-          data-category="Спорт"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Спорт
-        </button>
-        <button
-          data-category="Тепло"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Тепло
-        </button>
-        <button
-          data-category="Холод"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Холод
-        </button>
-        <button
-          data-category="Кружки"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Кружки
-        </button>
-        <button
-          data-category="Тетради"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Тетради
-        </button>
-        <button
-          data-category="Кофта"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Кофта
-        </button>
-        <button
-          data-category="Футболка"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Футболка
-        </button>
-        <button
-          data-category="Значок"
-          class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-black hover:text-white transition whitespace-nowrap"
-        >
-          Значок
-        </button>
-      </div>
-    </section>
-
-    <!-- Серая полоса разделитель -->
-    <div class="border-t border-gray-200"></div>
-
-    <!-- КАТАЛОГ -->
-    <section class="container mx-auto px-4 py-8">
-      <div
-        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6"
-      >
-        <h2 class="text-3xl font-bold">Каталог</h2>
-        <div class="flex gap-3 w-full md:w-auto">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Поиск товара..."
-            class="flex-1 md:w-64 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
-          />
-          <select
-            id="sort-select"
-            class="px-4 py-2 rounded-full border border-gray-300 bg-white"
-          >
-            <option value="default">Сортировка</option>
-            <option value="price-asc">Цена ↑</option>
-            <option value="price-desc">Цена ↓</option>
-            <option value="name">По названию</option>
-          </select>
+          <!-- Форма обратной связи -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4">Напишите нам</h2>
+            <form
+              action="mailto:rea@university.ru"
+              method="GET"
+              enctype="text/plain"
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Ваше имя"
+                class="w-full mb-3 px-4 py-2 border rounded-lg"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="w-full mb-3 px-4 py-2 border rounded-lg"
+              />
+              <textarea
+                name="message"
+                rows="4"
+                placeholder="Сообщение"
+                class="w-full mb-3 px-4 py-2 border rounded-lg"
+              ></textarea>
+              <button
+                type="submit"
+                class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800"
+              >
+                Отправить
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div id="products-container" class="product-grid"></div>
-
-      <div class="text-center mt-10">
-        <button
-          id="load-more-btn"
-          class="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition"
-        >
-          ЗАГРУЗИТЬ ЕЩЕ
-        </button>
-      </div>
-    </section>
-
-    <!-- ГАЛЕРЕЯ МЕРЧА -->
-    <section class="container mx-auto px-4 py-16">
-      <h2 class="text-2xl font-bold mb-6">Мерч в повседневности</h2>
-      <div class="relative">
-        <div
-          id="gallery-container"
-          class="flex gap-4 overflow-x-auto scroll-smooth pb-4"
-        ></div>
-        <button
-          onclick="scrollGallery(-1)"
-          class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
-        >
-          ◀
-        </button>
-        <button
-          onclick="scrollGallery(1)"
-          class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
-        >
-          ▶
-        </button>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- ФУТЕР -->
     <footer class="bg-gray-900 text-white mt-16 py-12">
@@ -521,18 +445,6 @@
         }
       }
 
-      // Обновить счётчик на иконке корзины
-      function updateCartCount() {
-        const countElement = document.getElementById("cart-count");
-        if (countElement) {
-          const totalItems = cart.reduce(
-            (sum, item) => sum + (item.quantity || 1),
-            0,
-          );
-          countElement.innerText = totalItems;
-        }
-      }
-
       // Обновить содержимое модального окна корзины
       function updateCartModal() {
         const container = document.getElementById("cart-items-list");
@@ -581,165 +493,19 @@
         }
       }
 
-      // Добавить товар в корзину
-      function addToCart(productId) {
-        const product = allProducts.find((p) => p.id === productId);
-        if (!product) {
-          console.error("Товар не найден, id:", productId);
-          return;
-        }
+      updateCartCount();
+      updateCartModal();
 
-        const existing = cart.find((item) => item.id === productId);
-        if (existing) {
-          existing.quantity = (existing.quantity || 1) + 1;
-        } else {
-          cart.push({
-            ...product,
-            quantity: 1,
-          });
-        }
-
-        updateCartCount();
-        updateCartModal(); // Важно! Обновляем окно корзины
-
-        // Показываем уведомление
-        const notif = document.createElement("div");
-        notif.className =
-          "fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-[1100]";
-        notif.innerText = `${product.name} добавлен в корзину!`;
-        document.body.appendChild(notif);
-        setTimeout(() => notif.remove(), 2000);
-      }
-
-      // Изменить количество товара
-      function changeQuantity(productId, delta) {
-        const itemIndex = cart.findIndex((i) => i.id === productId);
-        if (itemIndex === -1) return;
-
-        const item = cart[itemIndex];
-        const newQuantity = (item.quantity || 1) + delta;
-
-        if (newQuantity <= 0) {
-          cart.splice(itemIndex, 1);
-        } else {
-          item.quantity = newQuantity;
-        }
-
-        updateCartCount();
-        updateCartModal();
-      }
-
-      // Удалить товар полностью
-      function removeFromCart(productId) {
-        cart = cart.filter((i) => i.id !== productId);
-        updateCartCount();
-        updateCartModal();
-      }
-
-      // Оформить заказ
-      function checkout() {
-        if (cart.length === 0) {
-          alert("Корзина пуста!");
-          return;
-        }
-
-        const orderText = cart
-          .map(
-            (item) =>
-              `${item.name} × ${item.quantity} = ${(item.price * item.quantity).toLocaleString()} ₽`,
-          )
-          .join("\n");
-        const total = cart.reduce(
-          (sum, i) => sum + i.price * (i.quantity || 1),
-          0,
-        );
-
-        alert(
-          `Ваш заказ:\n${orderText}\n\nИтого: ${total.toLocaleString()} ₽\n\nСпасибо за покупку!`,
-        );
-
-        // Очищаем корзину
-        cart = [];
-        updateCartCount();
-        updateCartModal();
-        closeCartModal();
-      }
-
-      const allProducts = [
-        {
-          id: 1,
-          name: "Худи с Arseniy",
-          price: 2500,
-          image: "images/hoody.png",
-          category: "Кофта",
-        },
-        {
-          id: 2,
-          name: "Футболка",
-          price: 1200,
-          image: "images/shirt.png",
-          category: "Футболка",
-        },
-        {
-          id: 3,
-          name: "Кепка",
-          price: 800,
-          image: "images/cap.png",
-          category: "Спорт",
-        },
-        {
-          id: 4,
-          name: "Толстовка оверсайз",
-          price: 3000,
-          image: "images/tolstovka.png",
-          category: "Тепло",
-        },
-        {
-          id: 5,
-          name: "Кружка керамическая",
-          price: 500,
-          image: "images/cup.webp",
-          category: "Кружки",
-        },
-        {
-          id: 6,
-          name: "Блокнот A5",
-          price: 300,
-          image: "images/tetrad.webp",
-          category: "Тетради",
-        },
-        {
-          id: 7,
-          name: "Значок металлический",
-          price: 150,
-          image: "images/znachok.png",
-          category: "Значок",
-        },
-        {
-          id: 8,
-          name: "Шоппер хлопковый",
-          price: 900,
-          image: "images/shoper.png",
-          category: "Спорт",
-        },
-        {
-          id: 9,
-          name: "Рюкзак",
-          price: 2000,
-          image: "images/backpack.png",
-          category: "Тепло",
-        },
-        {
-          id: 10,
-          name: "Панама",
-          price: 600,
-          image: "images/panam.png",
-          category: "Холод",
-        },
-      ];
+      // Показываем уведомление
+      const notif = document.createElement("div");
+      notif.className =
+        "fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-[1100]";
+      notif.innerText = `${product.name} добавлен в корзину!`;
+      document.body.appendChild(notif);
+      setTimeout(() => notif.remove(), 2000);
 
       // Настройки отображения
-      let displayedCount = 5;
+      let displayedCount = 10;
       let currentProducts = allProducts.slice(0, displayedCount);
 
       function displayProducts(products) {
@@ -779,115 +545,8 @@
         currentProducts = allProducts.slice(0, displayedCount);
         displayProducts(currentProducts);
       }
-
-      // ПОИСК
-      const searchInput = document.getElementById("search-input");
-      if (searchInput) {
-        searchInput.addEventListener("input", (e) => {
-          const query = e.target.value.toLowerCase();
-          const filtered = allProducts.filter((p) =>
-            p.name.toLowerCase().includes(query),
-          );
-          displayProducts(filtered.slice(0, displayedCount));
-        });
-      }
-
-      // СОРТИРОВКА
-      const sortSelect = document.getElementById("sort-select");
-      if (sortSelect) {
-        sortSelect.addEventListener("change", (e) => {
-          let sorted = [...currentProducts];
-          switch (e.target.value) {
-            case "price-asc":
-              sorted.sort((a, b) => a.price - b.price);
-              break;
-            case "price-desc":
-              sorted.sort((a, b) => b.price - a.price);
-              break;
-            case "name":
-              sorted.sort((a, b) => a.name.localeCompare(b.name));
-              break;
-            default:
-              sorted = currentProducts;
-          }
-          displayProducts(sorted);
-        });
-      }
-
-      // ГАЛЕРЕЯ (снизу главной страницы)
-      const galleryImages = [
-        "images/som 1.jpg",
-        "images/som 2.webp",
-        "images/som 3.jpg",
-        "images/som 4.jpg",
-        "images/som 5.jpg",
-        "images/som 6.webp",
-        "images/som 7.webp",
-      ];
-
-      function displayGallery() {
-        const container = document.getElementById("gallery-container");
-        if (container) {
-          container.innerHTML = galleryImages
-            .map(
-              (img) => `
-                    <div class="flex-none w-80">
-                        <img src="${img}" class="w-full h-96 object-cover rounded-lg shadow-md">
-                    </div>
-                `,
-            )
-            .join("");
-        }
-      }
-
-      function scrollGallery(direction) {
-        const container = document.getElementById("gallery-container");
-        if (container) {
-          const scrollAmount = 400;
-          container.scrollLeft += direction * scrollAmount;
-        }
-      }
-
-      // ФИЛЬТРАЦИЯ ПО КНОПКАМ
-      let currentCategory = "all";
-
-      <!-- ФИЛЬТРАЦИЯ ПО КНОПКАМ -->
-      function filterProductsByCategory(category) {
-        currentCategory = category;
-
-        if (category === "all") {
-          currentProducts = allProducts.slice(0, displayedCount);
-        } else {
-          const filtered = allProducts.filter(
-            (product) => product.category === category,
-          );
-          currentProducts = filtered.slice(0, displayedCount);
-        }
-
-        displayProducts(currentProducts);
-      }
-
-      const filterButtons = document.querySelectorAll(
-        "#filter-buttons .filter-btn",
-      );
-      filterButtons.forEach((btn) => {
-        btn.addEventListener("click", function () {
-          filterButtons.forEach((b) => {
-            b.classList.remove("bg-black", "text-white");
-            b.classList.add("border", "border-gray-300");
-          });
-
-          this.classList.add("bg-black", "text-white");
-          this.classList.remove("border-gray-300");
-
-          const category = this.getAttribute("data-category");
-          filterProductsByCategory(category);
-        });
-      });
-
       // ЗАПУСК
       displayProducts(currentProducts);
-      displayGallery();
 
       const loadMoreBtn = document.getElementById("load-more-btn");
       if (loadMoreBtn) {
